@@ -1,5 +1,5 @@
 //Global Variab;es
-color blue=#180BD8, yellow=#F6FF00, resetColour=#FFFFFF, bittonColour;
+color blue=#180BD8, yellow=#F6FF00, resetColour=#FFFFFF, buttonColour;
 //
 void powerButton() {
   rect(displayWidth*125/128, displayHeight*0/128, displayWidth*128/128, displayHeight*4.5/128);
