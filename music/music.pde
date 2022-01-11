@@ -1,3 +1,4 @@
+//Library: use Sketch / Import Library / Minim
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -14,17 +15,13 @@ AudioPlayer song1, song2, song3; //creates "Play List" variable holding extensio
 
 void setup() {
   textSetup();
-  //background(blue);
-  fullScreen();
+  background(blue);
+  size(500,500);//fullScreen();
   population();
   // 
   minim = new Minim(this);
-  song1 = minim.loadFile("Black Mass - Brian Bolger.mp3");
-  song1.play();
-  song2 = minim.loadFile("Dead Forest - Brian Bolger.mp3");
-  song2.play();
-  song3 = minim.loadFile("Snowy Peaks pt I - Chris Haugen.mp3");
-  song3.play();
+  song1 = minim.loadFile("Music/Black Mass - Brian Bolger.mp3");
+  song1.play(5000);
 }//End setup()
 
 void draw() {
@@ -32,9 +29,18 @@ void draw() {
 }//End draw()
 
 void keyPressed() {
-}//End keyPressed()
-
+  if (key == 'p') {
+    if ( song1.isPlaying() ) {
+      song1.pause();
+    } else if ( song1.position() == song1.length()-0001) {
+      song1.rewind();
+      song1.play();
+    } else {
+      song1.play();
+    }
+  }
+}//End keyPressed()}
 void mousePressed() {
   powerMousePressed();
- // if ()
-  }//End mousePressed()
+  // if ()
+}//End mousePressed()
