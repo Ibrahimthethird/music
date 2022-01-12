@@ -50,9 +50,14 @@ void keyPressed() {
   //FastRewind
   if (key == 'd' || key == 'D') song1.skip(-1000);
   //Mute
-  
-}
-//End keyPressed()   
+  if (key == 'q' || key == 'Q') {
+    if ( song1.isMuted() ) {
+      song1.unmute();
+    } else {
+      song1.mute();
+    }
+  }
+}//End keyPressed()   
 void mousePressed() {
   powerMousePressed();
   // if ()
