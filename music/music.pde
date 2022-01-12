@@ -11,12 +11,12 @@ import ddf.minim.ugens.*;
 
 //Global Variables
 Minim minim; //creates object to access all functions
-AudioPlayer song1, song2, song3; //creates "Play List" variable holding extensions WAV, AIFF, AU, SND, and MP3
+AudioPlayer song1; //creates "Play List" variable holding extensions WAV, AIFF, AU, SND, and MP3
 
 void setup() {
   textSetup();
   background(blue);
-  size(500,500);//fullScreen();
+  fullScreen();//size(500, 500);
   population();
   // 
   minim = new Minim(this);
@@ -29,7 +29,7 @@ void draw() {
 }//End draw()
 
 void keyPressed() {
-  if (key == 'p') {
+  if (key == 'w' || key == 'W') {
     if ( song1.isPlaying() ) {
       song1.pause();
     } else if ( song1.position() == song1.length()-0001) {
@@ -39,7 +39,20 @@ void keyPressed() {
       song1.play();
     }
   }
-}//End keyPressed()}
+  //Play-Stop
+  //  if (keyCode == 's') {
+  // if ( song1.isPlaying() ) {
+  //   song1.pause();
+  //   song1.rewind();
+  //} 
+  //FastForward
+  if (key == 'a' || key == 'A') song1.skip(1000); 
+  //FastRewind
+  if (key == 'd' || key == 'D') song1.skip(-1000);
+  //Mute
+  
+}
+//End keyPressed()   
 void mousePressed() {
   powerMousePressed();
   // if ()
